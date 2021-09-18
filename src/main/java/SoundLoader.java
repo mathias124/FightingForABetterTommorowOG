@@ -1,48 +1,47 @@
-/*import processing.core.PApplet;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-
-public class SoundLoader {
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
-import javazoom.jl.player.PlayerApplet;
 import processing.core.PApplet;
+
 
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 
-
-
-    public class SoundLoader extends Thread {
+/*
+public class SoundLoader extends Thread {
         File normalMusic;
+
         File bossMusic;
         File file;
         PApplet p;
         Player mp3;
-        //Backgrounds backgrounds;
+        Location location;
+        LocationType locationType1;
 
-        SoundLoader(PApplet p,Location location) {
+
+       SoundLoader( PApplet p,LocationType locationType1) {
             this.p = p;
             this.location = location;
-            normalMusic = new java.io.File("src\\main\\resources\\midgamefil.mp3");
+            normalMusic = new java.io.File("src\\main\\resources\\Darkrai's Theme Medley.mp3");
             bossMusic = new java.io.File("src\\main\\resources\\bossfil.mp3");
         }
 
-        public void run() {
+
+
+    public void run() {
             while(0<1){
-                if(location.check){
-                    back.check = false;
+                if(!location.check){
+                    location.check = false;
                     loadSounds();
                 }
 
                 playSounds();
+
             }}
 
         public void loadSounds() {
-            if(!location.bossLevel)
+            if(!location.check)
                 file = normalMusic;
             else
                 file = bossMusic;
@@ -70,9 +69,8 @@ import java.io.FileInputStream;
 
 
 
-
-
-
-
-}
 */
+
+
+
+

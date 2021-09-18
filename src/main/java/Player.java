@@ -17,7 +17,7 @@ public class Player {
     Inventory inventory;
 
     ImageLoader imgLoad;
-
+    Audio audio;
     PVector position = new PVector();
     PVector velocity = new PVector();
     PVector bulletSpeed = new PVector();
@@ -56,13 +56,14 @@ public class Player {
 
 
 
-    Player(PApplet p, ArrayList<Bullet> bullets,Inventory inventory,ImageLoader imgLoad,FontLoader fontLoad) {
+    Player(PApplet p, ArrayList<Bullet> bullets,Inventory inventory,ImageLoader imgLoad,FontLoader fontLoad,Audio audio) {
         this.playerHealth = playerHealth;
         this.p = p;
         this.bullets = bullets;
         this.imgLoad = imgLoad;
         this.inventory = inventory;
         this.fontLoad = fontLoad;
+        this.audio = audio;
         position.set(1400, this.p.height / 2);
 
     }
@@ -78,6 +79,7 @@ public class Player {
 
         boolean add = true;
         if(location.location == LocationType.shop){
+
         for (int i =0;i<grid.size();i++) {
             if (grid.get(i).furnitureGridType == FurnitureTypes.wall) {
                 if (grid.get(i).furniture.collision(this, temp.x, temp.y, grid.get(i).x, grid.get(i).y, grid.get(i).width, grid.get(i).height))
@@ -139,6 +141,7 @@ public class Player {
             dead = true;
             //position.set(960, 890);
             location.changeLocation(LocationType.deathrealm);
+
             position.set(960, 890);
 
         }

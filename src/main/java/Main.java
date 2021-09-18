@@ -1,6 +1,8 @@
 import processing.core.PApplet;
+import jaco.mp3.player.MP3Player;
 
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Main extends PApplet {
@@ -16,9 +18,11 @@ public class Main extends PApplet {
     FontLoader fontLoad = new FontLoader(this);
     ArrayList<Bullet> bullets = new ArrayList<>();
     GUI gUI;
-    //SoundLoader soundLoad = new SoundLoader(p.t);
+
+    //SoundLoader soundLoad = new SoundLoader(this,LocationType.dungeon);
     GridCreater gridCreate = new GridCreater();
     FloatyText fT;
+
 
     StartMenu startMenu;
     Inventory inventory;
@@ -30,13 +34,17 @@ public class Main extends PApplet {
     Camera camera;
     Deathrealm deathRealm;
     DeathReaper deathReaper;
-    
+
+    Audio soundlocation = new Audio(this,location);
 
 
 
     public static void main(String[] args) {
         PApplet.main("Main");
+        //new MP3Player(new File("src\\main\\resources\\Darkrai's Theme Medley.mp3")).play();
     }
+
+
     //Thread thread = new Thread();
     //thread.start();
 
@@ -47,17 +55,21 @@ public class Main extends PApplet {
     }
 
 
-
-
     public void setup() {
 
         super.setup();
 
         imgLoad.loadTheImages();
         fontLoad.loadFont();
+
+        //soundLoad.start();
         //soundLoad.loadSounds();
+        //soundlocation.soundlocation(location);
+
+        soundlocation = new Audio(this,location);
+
         inventory = new Inventory(this,this);
-        player = new Player(this,bullets,inventory,imgLoad,fontLoad);
+        player = new Player(this,bullets,inventory,imgLoad,fontLoad,soundlocation);
         grid = gridCreate.createGrid(width, height, this, imgLoad, inventory,20,12,true,0,player);
         inventoryGrid = gridCreate.createGridInventory(500,500,this,imgLoad,inventory,5,5,false,250);
         shop = new Shop(furnitureList, grid);
@@ -68,8 +80,8 @@ public class Main extends PApplet {
         deathRealm = new Deathrealm(this,player, pillars, deathReaper,this);
         startMenu = new StartMenu(this,player,this,imgLoad.startUp);
         info = new Info(this,this,imgLoad.tutorial);
-        location = new Location(shop, dungeon,gUI, deathRealm,startMenu, info);
-        
+        location = new Location(shop, dungeon,gUI, deathRealm,startMenu, info,soundlocation);
+
 
         inventory.furnitureList.add(new WallItem(imgLoad.wall));
         inventory.furnitureList.add(new DoorItem(imgLoad.door));
@@ -86,6 +98,7 @@ public class Main extends PApplet {
         //camera.changeAngle();
         location.functions(this);
         player.draw(inventoryGrid,grid,location);
+
 
     //    System.out.println(inventoryGrid);
     }
