@@ -33,6 +33,7 @@ public class ImageLoader {
     PImage skud;
     PImage deathItem;
     PImage clipboard;
+    PImage healthpot;
 
     //Player models
     PImage npcmale;
@@ -106,6 +107,7 @@ public class ImageLoader {
         skud = p.loadImage("skud.png");
         deathItem = p.loadImage("deathitem.png");
         clipboard = p.loadImage("clipboard.png");
+        healthpot = p.loadImage("healthpot.png");
 
 
         //Characters & Mobs

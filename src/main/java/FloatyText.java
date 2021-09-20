@@ -32,5 +32,19 @@ result = true;
 
 return result;
     }
+    boolean healthText() {
+        boolean result = false;
+        if (amount != 0)
+            p.fill(0, 122, 135);
+        else
+            p.fill(122, 0, 135);
+        p.text(amount + "SHINY", x + 35, y);
 
+        y -= 1;
+        p.fill(255, 255, 255);
+        if (y < baseY - 100)
+            result = true;
+        return  result;
+
+    }
 }

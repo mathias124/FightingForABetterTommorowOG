@@ -27,8 +27,8 @@ public class Enemy {
     boolean enemySlashRange = false;
     boolean enemyTalkRange = false;
     boolean knockback = false;
-
-    int time =-1;
+    boolean passiveWalk = false;
+    int time = -1;
     int t0 = 0;
 
     float speed;
@@ -45,7 +45,7 @@ public class Enemy {
 
     //float calculateHP;
 
-    Enemy(float xPos, float yPos, float speed, float health,float activeRadius, PVector playerPosition, PApplet p, Player player,ImageLoader imgLoad) {
+    Enemy(float xPos, float yPos, float speed, float health, float activeRadius, PVector playerPosition, PApplet p, Player player, ImageLoader imgLoad) {
         enemyPosition.x = xPos;
         enemyPosition.y = yPos;
         this.speed = speed;
@@ -62,7 +62,15 @@ public class Enemy {
     }
 
     void update() {
+        if (passiveWalk == true) {
+            walkpassive();
+        }
+
+        //p.fill(156,255,0);
+
         if (followingPlayer) {
+            //passiveWalk = false;
+
             //Identificere spillerens lokation.
             PVector targetVector = new PVector();
 
@@ -91,9 +99,9 @@ public class Enemy {
 
             //getGetEnemyvelocity.limit(movespeed);
             //p.println(steerforce);
-            if(knockback ==true) {
-               enemyPosition.add(-direction.x*12,-direction.y*12);
-                knockback =false;
+            if (knockback == true) {
+                enemyPosition.add(-direction.x * 12, -direction.y * 12);
+                knockback = false;
             }
 
         }
@@ -104,8 +112,16 @@ public class Enemy {
         } else if (health < 25) {
             p.fill(0, 255, 0);
         }
-
     }
+
+    public void walkpassive() {
+        if(passiveWalk == true)
+        p.noFill();
+        p.ellipse(enemyPosition.x, enemyPosition.y, 600, 600);
+        p.stroke(255, 156, 0);
+        p.strokeWeight(5);
+    }
+
 
     public void display() {
         p.imageMode(3);
@@ -157,6 +173,7 @@ void timerReset() {
         if (distance <= activeRadius) {
             followingPlayer = true;
             enemyTalkRange = true;
+            passiveWalk = false;
             if(distance < 35) {
                 enemySlashRange = true;
 
@@ -167,7 +184,7 @@ void timerReset() {
             }
                  else
 
-                     //HIT FUCKTION HERE WHEN ATTACKING.
+                     //HIT FUNCTION HERE WHEN ATTACKING.
                      moveSpeed =speed;
                      enemySlashRange = false;
                      enemyTalkRange = false;

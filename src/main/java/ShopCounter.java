@@ -25,6 +25,10 @@ public class ShopCounter extends Furniture {
                 temp = new Primadonna(m.imgLoad.primadonna);
                 }
                 break;
+                    case funnyfungus:  {
+                        temp = new Funnyfungus(m.imgLoad.funnyfungus);
+                    }
+                    break;
                 case cheddar: {
                     temp = new Cheddar(m.imgLoad.cheddar);
                 }
@@ -55,6 +59,10 @@ public class ShopCounter extends Furniture {
                                 itemImg = m.player.imgLoad.primadonna;
                             }
                             break;
+                            case funnyfungus: {
+                                itemImg = m.player.imgLoad.funnyfungus;
+                                break;
+                            }
                             case cheddar: {
                                 itemImg = m.player.imgLoad.cheddar;
                             }

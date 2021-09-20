@@ -53,6 +53,7 @@ public class Player {
     int width = 63;
     int height = 63;
     int money = 100;
+    int healthpot = 1;
 
 
 
@@ -265,40 +266,7 @@ public class Player {
 
         }
         p.imageMode(0);
-       /*
 
-
-       //PROTOTYPE OG PROBLEMER DOKUMENTERS HER.
-        if(down)
-            //forward
-
-                //imgs = imgs[i-1];
-    //            p.image(imgLoad.forward1, position.x, position.y, width, height);
-        if(running)
-            p.image(imgLoad.frontImgs[p.frameCount/8 %2], position.x, position.y, width, height);
-        else
-            p.image(imgLoad.frontImgs[p.frameCount/18 %2], position.x, position.y, width, height);
-
-            if(up )
-        //behind
-                if(running)
-        p.image(imgLoad.behindImgs[p.frameCount/8 %2],position.x,position.y,width,height);
-                else
-                    p.image(imgLoad.behindImgs[p.frameCount/18 %2],position.x,position.y,width,height);
-        //Right
-        if(right)
-        p.image(imgLoad.rightsideplayer,position.x,position.y,width,height);
-        if(left)
-            //Left.
-        p.image(imgLoad.leftsideplayer,position.x,position.y,width,height);
-        if(!up && !down && !left && !right) {
-        //Standing Still.
-            p.image(imgLoad.forward1,position.x,position.y,width,height);
-        }
-        p.imageMode(0);
-
-    }
-'*/
     }
      void addBullet(Camera camera) {
         bulletSpeed.set(p.mouseX-camera.translateX,p.mouseY-camera.translateY,0);
@@ -375,9 +343,12 @@ void regainStamina() {
     }
 }
 
-void showMoney(){
+void showTopIcon(){
         p.fill(255);
         p.text(money  +" $",20,20);
+        p.image(imgLoad.healthpot,40,40);
+
+        p.text(healthpot + "",40,40);
 
 
 }

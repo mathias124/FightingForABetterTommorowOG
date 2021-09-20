@@ -30,17 +30,18 @@ this.textList = textList;
 
 
             for (int i = 0; textList.size()>i;i++) {
-                if(textList.get(i).moneyText()) {
-                   textList.remove(i);
-                    System.out.println("true");
+                if (textList.get(i).moneyText()) {
+                    if (textList.get(i).healthText()) {
+                        textList.remove(i);
+                        System.out.println("true");
+                    }
                 }
             }
 
 
 
 
-
-       player.showMoney();
+       player.showTopIcon();
     }
 
     void displayDungeon() {
