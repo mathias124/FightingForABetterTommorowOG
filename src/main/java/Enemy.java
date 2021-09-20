@@ -18,7 +18,10 @@ public class Enemy {
     PVector playerPosition;
     PVector enemyPosition = new PVector();
     PVector getGetEnemyVelocity = new PVector(0, 0);
+    PVector walkSpeedleft = new PVector(-2,0);
+    PVector walkSpeedRight = new PVector(2,0);
     PVector acceleration;
+
 
     Items drop = Items.empty;
     ImageLoader imgLoad;
@@ -28,6 +31,7 @@ public class Enemy {
     boolean enemyTalkRange = false;
     boolean knockback = false;
     boolean passiveWalk = false;
+    boolean moveleft;
     int time = -1;
     int t0 = 0;
 
@@ -114,18 +118,10 @@ public class Enemy {
         }
     }
 
-    public void walkpassive() {
-        if(passiveWalk == true)
-        p.noFill();
-        p.ellipse(enemyPosition.x, enemyPosition.y, 600, 600);
-        p.stroke(255, 156, 0);
-        p.strokeWeight(5);
-    }
-
 
     public void display() {
         p.imageMode(3);
-        p.image(img,enemyPosition.x, enemyPosition.y, enemyDiameter, enemyDiameter);
+        p.image(img, enemyPosition.x, enemyPosition.y, enemyDiameter, enemyDiameter);
         p.imageMode(0);
 
         //Laver enemies Healthbar.
@@ -137,15 +133,63 @@ public class Enemy {
         boolean hit = pointRadius(playerPosition.x, playerPosition.y, enemyPosition.x, enemyPosition.y, enemyDiameter);
 
         if (hit) {
-           //timerReset();
+            //timerReset();
 
 
             player.playerHealth -= 10;
             //playerPosition.add()
 
         }
-
     }
+
+    public void walkpassive() {
+
+        if (passiveWalk == true) {
+
+
+            if (enemyPosition.x < 425.0f) {
+                moveleft = false;
+            }
+            if (enemyPosition.x > 4150.0f) {
+                moveleft = true;
+            }
+            if (moveleft == true) {
+                enemyPosition.x -= 2;
+            }
+            if (moveleft == false) {
+                enemyPosition.x += 2;
+            }
+
+
+            //   enemyPosition.x += walkright;
+            // if(enemyPosition.x > 4199)
+            //   walkright =-walkleft(walkright);
+            //if(enemyPosition.x < 375)
+            //  walkright = walkleft(walkright);
+            //p.println(playerPosition.x);
+
+
+            //p.noFill();
+            //p.ellipse(playerPosition.x,enemyPosition.y,);
+            float distanceX = playerPosition.x - enemyPosition.x;
+            float distanceY = playerPosition.y - enemyPosition.y;
+
+            float distance = p.sqrt((distanceX * distanceX) + (distanceY * distanceY));
+
+
+            if (distance > activeRadius) {
+
+                p.stroke(139, 0, 15);
+                p.strokeWeight(5);
+                p.noFill();
+                //p.ellipse(enemyPosition.x, enemyPosition.y,distance-350,distance-350);
+                p.ellipse(enemyPosition.x, enemyPosition.y, activeRadius + 350, activeRadius + 350);
+
+
+            }
+        }
+    }
+
 void timerReset() {
         time = p.millis();
        // p.println(time);
@@ -168,7 +212,9 @@ void timerReset() {
     boolean pointRadius(float positionx, float positiony,  float getEnemypositionx, float timer, float Enemyradius) {
         float distanceX = playerPosition.x - enemyPosition.x;
         float distanceY = playerPosition.y - enemyPosition.y;
+
         float distance = p.sqrt((distanceX * distanceX) + (distanceY * distanceY));
+
 
         if (distance <= activeRadius) {
             followingPlayer = true;
