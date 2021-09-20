@@ -35,11 +35,17 @@ Door(PImage img){
                 m.enemies.add(new CheeseGhast((int) getRandomSpawn.x, (int) getRandomSpawn.y,   m.player.position, m.player.p, m.player,m.imgLoad));
 
             }
-            for(int i =0; i<12;i++) {
+            for(int i =0; i<5;i++) {
+                PVector getRandomSpawn = getRandomSpawn(m.player.p);
+
+                m.enemies.add(new ManagerEnemy((int) getRandomSpawn.x, (int) getRandomSpawn.y, m.player.position, m.player.p, m.player, m.imgLoad));
+            }
+                for(int i =0; i<12;i++) {
                 PVector getRandomSpawn = getRandomSpawn(m.player.p);
 
                 m.enemies.add(new Uzzi((int) getRandomSpawn.x, (int) getRandomSpawn.y, m.player.position, m.player.p, m.player, m.imgLoad));
             }
+
         }
 
         else{

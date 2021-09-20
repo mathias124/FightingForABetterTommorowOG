@@ -5,6 +5,7 @@ public enum Items {
     funnyfungus,
     deathitem,
     primadonna,
+    clipboard,
     cheddar,
     shopCounterItem,
     cashRegisterItem,

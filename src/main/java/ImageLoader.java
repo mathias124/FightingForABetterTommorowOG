@@ -32,6 +32,7 @@ public class ImageLoader {
     PImage funnyfungus;
     PImage skud;
     PImage deathItem;
+    PImage clipboard;
 
     //Player models
     PImage npcmale;
@@ -42,6 +43,9 @@ public class ImageLoader {
     PImage grimReaper;
     PImage uzzi;
     PImage bummer;
+
+    PImage firkantmanager;
+
 
 
     //only player
@@ -101,10 +105,11 @@ public class ImageLoader {
         funnyfungus = p.loadImage("funnyfungus.png");
         skud = p.loadImage("skud.png");
         deathItem = p.loadImage("deathitem.png");
+        clipboard = p.loadImage("clipboard.png");
 
 
         //Characters & Mobs
-
+        firkantmanager = p.loadImage("firkantmanager.png");
         captaincheese = p.loadImage("Kaptajn Ost.png");
         cheeseGolem = p.loadImage("cheesemob.png");
         cheeseDemon = p.loadImage("cheesedemon.png");
@@ -115,6 +120,7 @@ public class ImageLoader {
         shopBackground = p.loadImage("shopbackgrounden.png");
         mainMap = p.loadImage("MainMapground.png");
         bummer = p.loadImage("Bummer.png");
+
 
 //Player
         runningright = p.loadImage("runningright.png");

@@ -22,12 +22,12 @@ int money = 0;
                     }break;
                     case cheddar:{
                         money = 50;
-
+                    }break;
+                    case clipboard:{
+                        money = 70;
                     }break;
                     case pizzaTopping:{
                         money = 10;
-
-
 
                     }break;
                     default:{

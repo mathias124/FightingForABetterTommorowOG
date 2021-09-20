@@ -1,6 +1,8 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 
+import javax.sound.sampled.Clip;
+
 public class ShopCounter extends Furniture {
 
     ShopCounter(PImage img){
@@ -27,6 +29,10 @@ public class ShopCounter extends Furniture {
                     temp = new Cheddar(m.imgLoad.cheddar);
                 }
                 break;
+                    case clipboard: {
+                        temp = new Clipboard(m.imgLoad.clipboard);
+                }
+                break;
                 case pizzaTopping: {
                     temp = new PizzaTopping(m.imgLoad.pizzatopping);
                 }
@@ -51,6 +57,10 @@ public class ShopCounter extends Furniture {
                             break;
                             case cheddar: {
                                 itemImg = m.player.imgLoad.cheddar;
+                            }
+                            break;
+                            case clipboard: {
+                                itemImg = m.player.imgLoad.clipboard;
                             }
                             break;
                             case pizzaTopping: {
