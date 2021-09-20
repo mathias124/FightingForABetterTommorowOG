@@ -105,7 +105,7 @@ public class Dungeon {
 
                    }break;
                    case clipboard:{
-                       player.inventory.add(new Cheddar(imgLoad.clipboard),1 );
+                       player.inventory.add(new Clipboard(imgLoad.clipboard),1 );
 
                    }break;
                    case primadonna:{
