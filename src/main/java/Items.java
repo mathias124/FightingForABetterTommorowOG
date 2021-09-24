@@ -7,6 +7,7 @@ public enum Items {
     primadonna,
     clipboard,
     cheddar,
+    mp5,
     shopCounterItem,
     cashRegisterItem,
     doorItem,

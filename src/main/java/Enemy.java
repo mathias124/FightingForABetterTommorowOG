@@ -46,6 +46,8 @@ public class Enemy {
     float playerDiameter = 64;
     float enemyDiameter = 64;
 
+    float wall1;
+    float wall2;
 
     //float calculateHP;
 
@@ -145,12 +147,23 @@ public class Enemy {
     public void walkpassive() {
 
         if (passiveWalk == true) {
+        if(enemyPosition.x < 1666) {
+            wall1 = 1666;
+            wall2 = 425;
+        }
+        if(enemyPosition.x < 1666) {
+            wall1 = 2907;
+            wall2 = 1666;
+        }
+        if(enemyPosition.x > 2908) {
+            wall1 = 4150;
+            wall2 = 2907;
+        }
 
-
-            if (enemyPosition.x < 425.0f) {
+            if (enemyPosition.x < wall2) {
                 moveleft = false;
             }
-            if (enemyPosition.x > 4150.0f) {
+            if (enemyPosition.x > wall1) {
                 moveleft = true;
             }
             if (moveleft == true) {

@@ -34,6 +34,8 @@ public class ImageLoader {
     PImage deathItem;
     PImage clipboard;
     PImage healthpot;
+    PImage mp5;
+    PImage wingedsword;
 
     //Player models
     PImage npcmale;
@@ -46,7 +48,7 @@ public class ImageLoader {
     PImage bummer;
 
     PImage firkantmanager;
-
+    PImage trekantsoldat;
 
 
     //only player
@@ -108,10 +110,14 @@ public class ImageLoader {
         deathItem = p.loadImage("deathitem.png");
         clipboard = p.loadImage("clipboard.png");
         healthpot = p.loadImage("healthpot.png");
+        mp5 = p.loadImage("mp5.png");
+        wingedsword = p.loadImage("winged-sword.png");
+        wingedsword.resize(64,64);
 
 
         //Characters & Mobs
         firkantmanager = p.loadImage("firkantmanager.png");
+        trekantsoldat = p.loadImage("Trekantsoldat.png");
         captaincheese = p.loadImage("Kaptajn Ost.png");
         cheeseGolem = p.loadImage("cheesemob.png");
         cheeseDemon = p.loadImage("cheesedemon.png");

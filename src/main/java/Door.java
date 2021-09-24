@@ -40,6 +40,11 @@ Door(PImage img){
 
                 m.enemies.add(new ManagerEnemy((int) getRandomSpawn.x, (int) getRandomSpawn.y, m.player.position, m.player.p, m.player, m.imgLoad));
             }
+            for(int i =0; i<5;i++) {
+                PVector getRandomSpawn = getRandomSpawn(m.player.p);
+
+                m.enemies.add(new TriangelSoldier((int) getRandomSpawn.x, (int) getRandomSpawn.y, m.player.position, m.player.p, m.player, m.imgLoad));
+            }
                 for(int i =0; i<12;i++) {
                 PVector getRandomSpawn = getRandomSpawn(m.player.p);
 
@@ -67,7 +72,7 @@ for (int i =0; i<m.grid.size();i++)
     result= new PVector();
     boolean check = true;
     while(check){
-        result.set(p.random(0, 3000),p.random(0, 3000));
+        result.set(p.random(425, 4149),p.random(450, 4200));
         if(result.x>1000||result.y>1000)
         check = false;
 

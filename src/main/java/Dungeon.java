@@ -74,7 +74,7 @@ public class Dungeon {
        while (bls-- != 0) {
            player.bullets.get(bls).script();
            for(int i=0; i<enemies.size();i++)
-            if (player.bullets.get(bls).hit(player.bullets, enemies.get(i))) {
+            if (player.bullets.get(bls).hit(player.bullets, enemies.get(i),player)) {
 
                 enemies.get(i).followingPlayer =true;
               
@@ -110,6 +110,10 @@ public class Dungeon {
                    }break;
                    case primadonna:{
                        player.inventory.add(new Primadonna(imgLoad.primadonna),1 );
+                   }break;
+
+                   case mp5:{
+                       player.inventory.add(new Mp5(imgLoad.mp5),1 );
 
 
                    }break;

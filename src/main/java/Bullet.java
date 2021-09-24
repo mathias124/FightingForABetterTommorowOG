@@ -13,6 +13,10 @@ public class Bullet {
  PImage skud;
  ImageLoader imgLoad;
 
+int finaldamage;
+Player player;
+int realfinaldamage;
+//int hitdamage;
     static final short FREQUENCY=2;
     static final short VEL = 5;
 
@@ -22,10 +26,13 @@ public class Bullet {
     //boolean isShooting;
 
 
-    Bullet(PApplet p, PVector bulletLocation, PVector velocity,ImageLoader imgLoad) {
+    Bullet(PApplet p, PVector bulletLocation, PVector velocity, ImageLoader imgLoad) {
         this.p = p;
         this.imgLoad = imgLoad;
         this.bulletLocation = bulletLocation;
+        //this.wingedsword = wingedsword;
+        this.player = player;
+        //this.finaldamage = finaldamage;
         bullettarget(bulletLocation,velocity);
     }
 
@@ -53,10 +60,16 @@ boolean check() {
         return pos.x > p.width | pos.x < 0 | pos.y > p.height | pos.y < 0;
 }
 
-    boolean hit(ArrayList<Bullet> bullets, Enemy enemy) {
+    boolean hit(ArrayList<Bullet> bullets, Enemy enemy,Player player) {
         if(((pos.x <= enemy.enemyPosition.x+ enemy.enemyDiameter && pos.x >= enemy.enemyPosition.x) ||(pos.x+bulletDiameter <= enemy.enemyPosition.x+ enemy.enemyDiameter && pos.x+bulletDiameter >= enemy.enemyPosition.x)) && (((pos.y <= enemy.enemyPosition.y+ enemy.enemyDiameter && pos.y >= enemy.enemyPosition.y))|| (pos.y+ bulletDiameter <= enemy.enemyPosition.y+ enemy.enemyDiameter && pos.y+bulletDiameter >= enemy.enemyPosition.y))) {
-            int hitdamage = (int) p.random(10,21);
-
+            int  hitdamage = (int) p.random(10,11);
+             //player.wingedsword = player.wingedsword;
+            //hitdamage + finaldamage = realfinaldamage;
+            //wingedsword++;
+            //hitdamage + player.wingedsword = hitdamage;
+            hitdamage++;
+            //player.wingedsword + hitdamage = finaldamage;
+            p.println(hitdamage);
             enemy.health -= hitdamage;
             enemy.knockback=true;
             return true;

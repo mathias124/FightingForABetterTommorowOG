@@ -12,6 +12,7 @@ public class CashRegister extends Furniture {
     void function(Main m){
 int money = 0;
 int healthpot = 0;
+int wingedsword = 0;
         for (int i=0;i<m.grid.size();i++){
             //System.out.println();
 
@@ -23,6 +24,9 @@ int healthpot = 0;
                     }break;
                     case funnyfungus: {
                         healthpot = 1;
+                    }break;
+                    case mp5: {
+                        wingedsword =1;
                     }break;
                     case cheddar:{
                         money = 50;
@@ -42,8 +46,12 @@ int healthpot = 0;
                 }
                 m.textList.add(new FloatyText(m.player.p,money,m.grid.get(i).x,m.grid.get(i).y));
                 m.textList.add(new FloatyText(m.player.p,healthpot,m.grid.get(i).x,m.grid.get(i).y));
+                m.textList.add(new FloatyText(m.player.p,wingedsword,m.grid.get(i).x,m.grid.get(i).y));
                 m.player.money += money;
                 m.player.healthpot += healthpot;
+                m.player.wingedsword += wingedsword;
+
+
                 m.grid.get(i).furniture.itemType = Items.empty;
                 m.grid.get(i).furniture.itemImg = null;
 

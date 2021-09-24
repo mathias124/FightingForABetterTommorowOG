@@ -54,6 +54,7 @@ public class Player {
     int height = 63;
     int money = 100;
     int healthpot = 1;
+    int wingedsword = 1;
 
 
 
@@ -144,6 +145,7 @@ public class Player {
             location.changeLocation(LocationType.deathrealm);
 
             position.set(960, 890);
+
 
         }
     }
@@ -347,8 +349,10 @@ void showTopIcon(){
         p.fill(255);
         p.text(money  +" $",20,20);
         p.image(imgLoad.healthpot,40,40);
-
         p.text(healthpot + "",40,40);
+        p.image(imgLoad.wingedsword,85,35);
+
+        p.text(wingedsword+"",85,45);
 
 
 }
